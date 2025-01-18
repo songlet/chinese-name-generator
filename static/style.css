@@ -22,6 +22,44 @@ body {
     gap: 2rem;
 }
 
+.counter {
+    text-align: center;
+    margin: 1.5rem 0;
+    font-size: 1.1rem;
+    color: #444;
+}
+
+.counter span {
+    display: block;
+    margin: 0.3rem 0;
+}
+
+#counter {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.credits {
+    margin: 1rem 0;
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.credits strong {
+    font-weight: bold;
+}
+
+.credits a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.credits a:hover {
+    text-decoration: underline;
+}
+
 .input-section {
     width: 100%;
 }
