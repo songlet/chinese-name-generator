@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinese Name Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Chinese Name Generator</h1>
+        
+        <div class="input-section">
+            {% if error %}
+                <div class="error">{{ error }}</div>
+            {% endif %}
+            
+            <form method="POST">
+                <div class="name-fields">
+                    <div class="name-field">
+                        <label for="surname">Surname</label>
+                        <input type="text" id="surname" name="surname" placeholder="Enter your surname" required>
+                        <small class="hint">Please enter your English surname</small>
+                    </div>
+                    <div class="name-field">
+                        <label for="given_name">Given Name</label>
+                        <input type="text" id="given_name" name="given_name" placeholder="Enter your given name" required>
+                        <small class="hint">Please enter your English given name</small>
+                    </div>
+                </div>
+                
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Select gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+                
+                <label for="interests">Interests</label>
+                <select id="interests" name="interests" required>
+                    <option value="">Select your interest</option>
+                    <option value="sports">Sports</option>
+                    <option value="music">Music</option>
+                    <option value="art">Art</option>
+                    <option value="reading">Reading</option>
+                    <option value="travel">Travel</option>
+                </select>
+                
+                <label for="birthdate">Birthdate</label>
+                <input type="date" id="birthdate" name="birthdate" required>
+                
+                <button type="submit">Generate Chinese Name</button>
+            </form>
+        </div>
+        
+        {% if name %}
+            <div class="result-section">
+                <div class="result">
+                    <h2>Your Chinese name is: {{ name }}</h2>
+                    <div class="user-info">
+                        <p><strong>Original Name:</strong> {{ original_name }}</p>
+                        <p><strong>Gender:</strong> {{ gender }}</p>
+                        <p><strong>Interests:</strong> {{ interests }}</p>
+                        <p><strong>Birthdate:</strong> {{ birthdate }}</p>
+                    </div>
+                    <div class="name-explanation">
+                        <h3>Name Explanation:</h3>
+                        <p>{{ explanation }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
